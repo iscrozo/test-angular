@@ -1,4 +1,4 @@
-<!-- <h3>Digita frutas</h3>
+<h3>Digita frutas</h3>
 <input type="text" [(ngModel)]="valueData" >
 <button (click)="addFruit(valueData)">Añadir fruta</button>
 <h3>{{valueData}}</h3>
@@ -8,6 +8,45 @@
   <ul *ngFor="let frutas of obgFrutas; index as i">
     <li>{{frutas}} <button (click)="deleteFruit(i)">eliminar fruta</button></li>
   </ul>
-</div> -->
+</div>
+<br>
+<!-- data binding -->
+<input type="text" [(ngModel)]="name" /> <button (click)="addUser(name)">Add User</button>
+<br />
+{{ name }}
+
+<br />
+<!-- ngSwitch -->
+<div [ngSwitch]="name">
+  <p *ngSwitchCase = "'Camilo'">Texto de Camilo</p>
+  <p *ngSwitchCase = "'Julian'">Texto de Julian</p>
+  <p *ngSwitchCase = "'Fabio'">Texto de Fabio </p>
+  <p *ngSwitchCase = "'Jose'">Texto de Jose</p>
+  <p *ngSwitchDefault>No hay match</p>
+</div>
+
+<br /><br />
+
+<!-- ngIf -->
+<div *ngIf="flag == true">
+  <p>Existen los sigiuentes registros</p>
+</div>
+
+
+<!-- ngIf - ngFor  array[string]-->
+<ul *ngIf="itemsName.length > 0">
+  <li *ngFor="let nameItem of itemsName; index as i">
+    {{ nameItem }} : {{i}} <button (click)="deleteUser(i)"> delete User</button>
+  </li>
+</ul>
+
+
+<br>
+<!-- nfor array[objeto] -->
+<div *ngFor = "let product of products">
+    <h4>{{product.title}}</h4>
+    <img style="width: 10%;height: 10%;"  [src]="product.image" alt={{product.id}}>
+</div>
+<br>
 
 <app-product></app-product>
